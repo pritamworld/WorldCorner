@@ -1,0 +1,9 @@
+CREATE TABLE [dbo].[likes] (
+    [like_Id] INT           IDENTITY (1, 1) NOT NULL,
+    [post_id] INT           NOT NULL,
+    [user_id] VARCHAR (100) NOT NULL,
+    PRIMARY KEY CLUSTERED ([like_Id] ASC),
+    FOREIGN KEY ([post_id]) REFERENCES [dbo].[posts] ([post_Id]),
+    FOREIGN KEY ([user_id]) REFERENCES [dbo].[user_details] ([email])
+);
+

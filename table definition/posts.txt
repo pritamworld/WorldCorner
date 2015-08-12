@@ -1,0 +1,10 @@
+CREATE TABLE [dbo].[posts] (
+    [post_Id] INT           IDENTITY (1, 1) NOT NULL,
+    [user_id] VARCHAR (100) NOT NULL,
+    [data]    TEXT          NOT NULL,
+    [time]    VARCHAR (50)  NOT NULL,
+    [date]    VARCHAR (50)  NOT NULL,
+    PRIMARY KEY CLUSTERED ([post_Id] ASC),
+    FOREIGN KEY ([user_id]) REFERENCES [dbo].[user_details] ([email])
+);
+

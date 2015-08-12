@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Web_DB" Class="LtoSqlDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\Web_DB.mdf;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="Web_DBConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.user_details" Member="user_details">
+    <Type Name="user_detail">
+      <Column Name="name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="email" Type="System.String" DbType="VarChar(100) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="pass" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="gender" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="addr" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="proimg" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="about" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="country" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="secq" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="seca" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="user_detail_post" Member="posts" ThisKey="email" OtherKey="user_id" Type="post" />
+      <Association Name="user_detail_comment" Member="comments" ThisKey="email" OtherKey="user_id" Type="comment" />
+      <Association Name="user_detail_friend" Member="friends" ThisKey="email" OtherKey="receiver_id" Type="friend" />
+      <Association Name="user_detail_friend1" Member="friends1" ThisKey="email" OtherKey="sender_id" Type="friend" />
+      <Association Name="user_detail_like" Member="likes" ThisKey="email" OtherKey="user_id" Type="like" />
+      <Association Name="user_detail_message" Member="messages" ThisKey="email" OtherKey="from_id" Type="message" />
+      <Association Name="user_detail_message1" Member="messages1" ThisKey="email" OtherKey="to_id" Type="message" />
+      <Association Name="user_detail_notification" Member="notifications" ThisKey="email" OtherKey="user_id" Type="notification" />
+    </Type>
+  </Table>
+  <Table Name="dbo.posts" Member="posts">
+    <Type Name="post">
+      <Column Name="post_Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="user_id" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="data" Type="System.String" DbType="Text NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="time" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="date" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="post_comment" Member="comments" ThisKey="post_Id" OtherKey="post_id" Type="comment" />
+      <Association Name="post_like" Member="likes" ThisKey="post_Id" OtherKey="post_id" Type="like" />
+      <Association Name="user_detail_post" Member="user_detail" ThisKey="user_id" OtherKey="email" Type="user_detail" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.comment" Member="comments">
+    <Type Name="comment">
+      <Column Name="comment_Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="post_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="user_id" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="data" Type="System.String" DbType="Text NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="time" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="date" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="post_comment" Member="post" ThisKey="post_id" OtherKey="post_Id" Type="post" IsForeignKey="true" />
+      <Association Name="user_detail_comment" Member="user_detail" ThisKey="user_id" OtherKey="email" Type="user_detail" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.friends" Member="friends">
+    <Type Name="friend">
+      <Column Name="friend_Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="sender_id" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="receiver_id" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="status" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
+      <Column Name="notify" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
+      <Association Name="user_detail_friend" Member="user_detail" ThisKey="receiver_id" OtherKey="email" Type="user_detail" IsForeignKey="true" />
+      <Association Name="user_detail_friend1" Member="user_detail1" ThisKey="sender_id" OtherKey="email" Type="user_detail" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.likes" Member="likes">
+    <Type Name="like">
+      <Column Name="post_id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="user_id" Type="System.String" DbType="VarChar(100) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="post_like" Member="post" ThisKey="post_id" OtherKey="post_Id" Type="post" IsForeignKey="true" />
+      <Association Name="user_detail_like" Member="user_detail" ThisKey="user_id" OtherKey="email" Type="user_detail" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.messages" Member="messages">
+    <Type Name="message">
+      <Column Name="msg_Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="from_id" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="to_id" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="msg" Type="System.String" DbType="Text NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="time" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="date" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="[read]" Member="read" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="user_detail_message" Member="user_detail" ThisKey="from_id" OtherKey="email" Type="user_detail" IsForeignKey="true" />
+      <Association Name="user_detail_message1" Member="user_detail1" ThisKey="to_id" OtherKey="email" Type="user_detail" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.notifications" Member="notifications">
+    <Type Name="notification">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="user_id" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="nottext" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="link" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="[read]" Member="read" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="user_detail_notification" Member="user_detail" ThisKey="user_id" OtherKey="email" Type="user_detail" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+</Database>

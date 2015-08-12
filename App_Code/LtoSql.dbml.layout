@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="LtoSql">
+  <DataContextMoniker Name="/LtoSqlDataContext" />
+  <nestedChildShapes>
+    <classShape Id="5ca9537e-b0e0-465c-b33b-634a9a74871b" absoluteBounds="3.875, 0.5, 2, 2.7324039713541666">
+      <DataClassMoniker Name="/LtoSqlDataContext/user_detail" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c89931eb-5eaa-4fb3-b707-854770a1f25e" absoluteBounds="3.8899999999999997, 0.96, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="98fc7d78-5a2d-4ca1-882a-b5f19541d3af" absoluteBounds="4.375, 3.75, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/LtoSqlDataContext/post" />
+      <nestedChildShapes>
+        <elementListCompartment Id="faba7d25-d3ff-4193-8e87-e8a2caf28f64" absoluteBounds="4.39, 4.21, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(5.53125 : 3.23240397135417); (5.53125 : 3.75)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/LtoSqlDataContext/user_detail/user_detail_post" />
+      <nodes>
+        <classShapeMoniker Id="5ca9537e-b0e0-465c-b33b-634a9a74871b" />
+        <classShapeMoniker Id="98fc7d78-5a2d-4ca1-882a-b5f19541d3af" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="875e4824-3bd7-42f1-a8e2-2db9c059f9e9" absoluteBounds="7.125, 3.25, 2, 1.9631982421875">
+      <DataClassMoniker Name="/LtoSqlDataContext/comment" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e1f0ef50-12e2-48fb-b1b5-6a076cee7896" absoluteBounds="7.1400000000000006, 3.71, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(6.375 : 4.48159912109375); (7.125 : 4.48159912109375)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/LtoSqlDataContext/post/post_comment" />
+      <nodes>
+        <classShapeMoniker Id="98fc7d78-5a2d-4ca1-882a-b5f19541d3af" />
+        <classShapeMoniker Id="875e4824-3bd7-42f1-a8e2-2db9c059f9e9" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.875 : 1.86620198567708); (6.875 : 1.86620198567708); (6.875 : 2.90549967447917); (8.125 : 2.90549967447917); (8.125 : 3.25)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/LtoSqlDataContext/user_detail/user_detail_comment" />
+      <nodes>
+        <classShapeMoniker Id="5ca9537e-b0e0-465c-b33b-634a9a74871b" />
+        <classShapeMoniker Id="875e4824-3bd7-42f1-a8e2-2db9c059f9e9" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="71ddec09-4f5f-4cc0-9d06-0edd5a7c92c0" absoluteBounds="0.5, 2.5, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/LtoSqlDataContext/friend" />
+      <nestedChildShapes>
+        <elementListCompartment Id="63a5d308-8911-431d-b379-5336b6e7b0dd" absoluteBounds="0.51500000000000012, 2.96, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(3.875 : 2.86620198567708); (3.27083083333333 : 2.86620198567708 : JumpStart); (3.10416416666667 : 2.86620198567708 : JumpEnd); (2.5 : 2.86620198567708)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/LtoSqlDataContext/user_detail/user_detail_friend" />
+      <nodes>
+        <classShapeMoniker Id="5ca9537e-b0e0-465c-b33b-634a9a74871b" />
+        <classShapeMoniker Id="71ddec09-4f5f-4cc0-9d06-0edd5a7c92c0" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(3.875 : 2.62060099283854); (3.27083083333333 : 2.62060099283854 : JumpStart); (3.10416416666667 : 2.62060099283854 : JumpEnd); (2.5 : 2.62060099283854)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/LtoSqlDataContext/user_detail/user_detail_friend1" />
+      <nodes>
+        <classShapeMoniker Id="5ca9537e-b0e0-465c-b33b-634a9a74871b" />
+        <classShapeMoniker Id="71ddec09-4f5f-4cc0-9d06-0edd5a7c92c0" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="41c680fb-cf10-4c11-903f-aeb8a5eb7e58" absoluteBounds="2, 4.5, 2, 1.1939925130208333">
+      <DataClassMoniker Name="/LtoSqlDataContext/like" />
+      <nestedChildShapes>
+        <elementListCompartment Id="656e4acd-7fe0-4a08-957b-e4428fd33b5e" absoluteBounds="2.015, 4.96, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(4.375 : 5.01044840494792); (4 : 5.01044840494792)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/LtoSqlDataContext/post/post_like" />
+      <nodes>
+        <classShapeMoniker Id="98fc7d78-5a2d-4ca1-882a-b5f19541d3af" />
+        <classShapeMoniker Id="41c680fb-cf10-4c11-903f-aeb8a5eb7e58" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(3.875 : 2.38544840494792); (3.1874975 : 2.38544840494792); (3.1874975 : 4.5)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/LtoSqlDataContext/user_detail/user_detail_like" />
+      <nodes>
+        <classShapeMoniker Id="5ca9537e-b0e0-465c-b33b-634a9a74871b" />
+        <classShapeMoniker Id="41c680fb-cf10-4c11-903f-aeb8a5eb7e58" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="457b63f2-2f97-4d6d-8de5-3f37de9c2dee" absoluteBounds="7.125, 0.5, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/LtoSqlDataContext/message" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c3ca859d-5658-4b7d-9082-9d65440026b4" absoluteBounds="7.1400000000000006, 0.96, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(5.875 : 1.12060099283854); (7.125 : 1.12060099283854)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/LtoSqlDataContext/user_detail/user_detail_message" />
+      <nodes>
+        <classShapeMoniker Id="5ca9537e-b0e0-465c-b33b-634a9a74871b" />
+        <classShapeMoniker Id="457b63f2-2f97-4d6d-8de5-3f37de9c2dee" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.875 : 2.32335083007812); (6.79166666666667 : 2.32335083007812 : JumpStart); (6.95833333333333 : 2.32335083007812 : JumpEnd); (7.125 : 2.32335083007812)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/LtoSqlDataContext/user_detail/user_detail_message1" />
+      <nodes>
+        <classShapeMoniker Id="5ca9537e-b0e0-465c-b33b-634a9a74871b" />
+        <classShapeMoniker Id="457b63f2-2f97-4d6d-8de5-3f37de9c2dee" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="d33022d7-201e-4804-b1af-b91ef4406875" absoluteBounds="0.5, 0.5, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/LtoSqlDataContext/notification" />
+      <nestedChildShapes>
+        <elementListCompartment Id="85995f4f-7cdf-4d25-991b-884b04dd3210" absoluteBounds="0.51500000000000012, 0.96, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(3.875 : 1.38544840494792); (2.5 : 1.38544840494792)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/LtoSqlDataContext/user_detail/user_detail_notification" />
+      <nodes>
+        <classShapeMoniker Id="5ca9537e-b0e0-465c-b33b-634a9a74871b" />
+        <classShapeMoniker Id="d33022d7-201e-4804-b1af-b91ef4406875" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>
